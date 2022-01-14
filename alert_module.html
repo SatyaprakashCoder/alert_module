@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My own JS Alert Module...</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica:ital@1&display=swap');
+* {
+   margin:0; 
+   padding:0; 
+   box-sizing:border-box;
+}
+#box {
+    position:relative;
+    padding:15px;
+    height:90vh;
+    flex-direction:column;
+    width:300px;
+    letter-spacing:2px;
+    justify-content:center;
+    align-items:center;
+    font-family: 'IM Fell Double Pica', serif;
+    display:flex;
+    margin:auto;
+    margin-top:5vh;
+    z-index:-10;
+    color:red;
+    background:linear-gradient(120deg, cyan, yellow, dodgerblue, lime);
+    box-shadow:0 0 20px yellow, 0 0 10px lime;
+    border-radius:4px;
+    animation:col 10s linear alternate infinite;
+}
+@keyframes col {
+    100% {
+        filter:hue-rotate(360deg) brightness(150%);
+    }
+}
+#box h1 {
+    font-weight:400;
+    border:2px solid red;
+    border-style:dashed;
+    margin:0.8em;
+}
+#box p {
+    padding:0.5em;
+    text-align:center;
+}
+@keyframes ani{
+    0%{
+        transform:scale(0);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+#box #ok {
+    height:40px;
+    width:80px;
+    font-size:20px;
+    color:lightblue;
+    margin-top:auto;
+    border:none;
+    background:transparent;
+    outline:none;
+    border-radius:2px;
+}
+#box span {
+    height:85vh;
+    position:absolute;
+    width:280px;
+    background:#111;
+    z-index:-1;
+}
+@media(max-width:480px) {
+    #box {
+        padding:3em;
+        width:90vw;
+    }
+    #box #span {
+        width:83vw;
+    }
+    #box h1 {
+        font-size:3em;
+    }
+    #box p {
+        font-size:1.4em;
+    }
+}
+@media(max-width:320px) {
+    #box {
+        padding:10px;
+    }
+    #box h1 {
+        font-size:1.7em;
+    }
+    #box p {
+        font-size:1.1em;
+    }
+}
+        </style>
+    </head>
+    <body>
+    <tit style="display:none;">Title</tit>
+    <desc style="display:none;">Lorem ipsum dolor sit amet consectetur adipspicing, lorem ipsum dolor sit amet consectetur adipscicing.</desc>
+        <script>
+        var title = document.querySelector("tit").textContent;
+            var description = document.querySelector("desc").textContent;
+            var res = `<div id="box">
+        <span id="span"></span>
+        <h1>${title}</h1>
+        <p>${description}</p>
+        <button id='ok'>OK</button>
+        </div>`;
+       var body = document.querySelector("body").innerHTML += res;
+        window.onload = ()=>{
+           span.style.animation = "ani 1s 1";
+        }
+        window.onclick = ()=>{
+            box.style.display = "none";
+            var res = "";
+            body.innerHTML -= res;
+        }
+        </script>
+    </body>
+</html>
